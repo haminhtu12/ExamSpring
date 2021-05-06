@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymelead.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/students/addOrEdit}" method="post" th:object="${studentDto}" enctype="multipart/form-data">
+
+    id :<input th:field="*{id}" placeholder="Id" type="text" hidden><br>
+    <div th:if="${#fields.hasErrors('id')}" th:errorclass="error" th:errors="*{id}"/>
+    <br>
+
+    name :<input th:field="*{name}" placeholder="name" type="text"><br>
+    <div th:if="${#fields.hasErrors('name')}" th:errorclass="error" th:errors="*{name}"/>
+    <br>
+
+    code Student <input th:field="*{codeStudent}" placeholder="codeStudent" type="text"><br>
+    <div th:if="${#fields.hasErrors('codeStudent')}" th:errorclass="error" th:errors="*{codeStudent}"/>
+    <br>
+
+    gender <input th:field="*{gender}" placeholder="gender" type="text"><br>
+    <div th:if="${#fields.hasErrors('gender')}" th:errorclass="error" th:errors="*{gender}"/>
+    <br>
+
+    email <input th:field="*{email}" placeholder="email" type="text"><br>
+    <div th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{email}"/>
+    <br>
+
+    phone <input th:field="*{phone}" placeholder="phone" type="text"><br>
+    <div th:if="${#fields.hasErrors('phone')}" th:errorclass="error" th:errors="*{phone}"/>
+    <br>
+
+    birthDay <input th:field="*{birthDay}" placeholder="birthDay" type="text"><br>
+    <div th:if="${#fields.hasErrors('birthDay')}" th:errorclass="error" th:errors="*{birthDay}"/>
+    <br>
+
+    homeTown <input th:field="*{homeTown}" placeholder="homeTown" type="text"><br>
+    <div th:if="${#fields.hasErrors('homeTown')}" th:errorclass="error" th:errors="*{homeTown}"/>
+    <br>
+
+
+    <input type="submit" value="Submit"/> <br>
+    <a th:href="@{/students/addOrEdit}">new</a>
+    <a th:href="@{/students/list}">list - student </a>
+
+</form>
+</body>
+</html>
